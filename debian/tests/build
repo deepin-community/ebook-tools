@@ -1,0 +1,7 @@
+#!/bin/sh
+set -e
+
+SRCDIR=$(dirname $(realpath $0))
+cd $ADTTMP
+gcc -Wall -Werror -pedantic -std=c90 -o test-libepub $SRCDIR/test-libepub.c -lepub
+./test-libepub "$SRCDIR/wasteland-20120118.epub"

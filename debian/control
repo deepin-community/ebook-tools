@@ -1,0 +1,62 @@
+Source: ebook-tools
+Priority: optional
+Maintainer: Pino Toscano <pino@debian.org>
+Build-Depends: debhelper (>= 9), cmake (>= 2.4.0), libxml2-dev, libzip-dev
+Standards-Version: 3.9.5
+Section: libs
+Homepage: http://sourceforge.net/projects/ebook-tools
+XS-Testsuite: autopkgtest
+
+Package: libepub-dev
+Section: libdevel
+Architecture: any
+Depends: libepub0 (= ${binary:Version}), ${misc:Depends}
+Description: library to work with the EPUB file format - development files
+ The ebook-tools provide ways for accessing and converting different
+ ebook file formats.
+ .
+ This C library is free and portable. It includes methods to parse
+ EPUB files and extract their contents.
+ .
+ This package provides development headers and libraries for libepub.
+
+Package: libepub0
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: library to work with the EPUB file format - runtime library
+ The ebook-tools provide ways for accessing and converting different
+ ebook file formats.
+ .
+ This C library is free and portable. It includes methods to parse
+ EPUB files and extract their contents.
+ .
+ This package provides the main epub library.
+
+Package: ebook-tools-dbg
+Section: debug
+Architecture: any
+Priority: extra
+Depends: libepub0 (= ${binary:Version}), ${misc:Depends}
+Description: library and tools to work with the EPUB file format - debug symbols
+ The ebook-tools provide ways for accessing and converting different
+ ebook file formats.
+ .
+ This C library is free and portable. It includes methods to parse
+ EPUB files and extract their contents.
+ .
+ This package provides the debug symbols for the epub library and the
+ utilities.
+
+Package: epub-utils
+Section: graphics
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, libepub0 (= ${binary:Version})
+Recommends: convlit, zip
+Description: tools to work with the EPUB file format
+ The ebook-tools provide ways for accessing and converting different
+ ebook file formats.
+ .
+ This package contains the following utilities:
+  - einfo           : provides some basic info about an EPUB document,
+                      such as metadata, reading order, etc.
+  - lit2epub        : converts a LIT file to EPUB (using convlit and zip).
